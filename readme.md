@@ -3,7 +3,6 @@
     npm i -g nodemon
     nodemon app.js
 ```
-**********************
 #art-template 模版使用
 
     引入art-template的包
