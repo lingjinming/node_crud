@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>users</title>
+    <style>
+        p{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<h1>{{title}}</h1>
+
+<h1>
+    {{each users as user index}}
+
+    <p>{{index}}-{{user.id}}-{{user.name}}-{{user.phone}}-{{user.email}}-{{user.address}}-{{user.birthday}}</p>
+
+    {{/each}}
+</h1>
+</body>
+</html>

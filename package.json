@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/ljm993510/node_crud#readme",
   "dependencies": {
+    "art-template": "^4.13.1",
     "express": "^4.16.4",
+    "express-art-template": "^1.0.1",
+    "mockjs": "^1.0.1-beta3",
     "nodemon": "^1.18.6"
   }
 }
