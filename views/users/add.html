@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户添加</title>
+</head>
+<body>
+<h3>添加用户
+</h3>
+<form action="/users/adduser" method="POST">
+<table>
+    <tr>
+        <td>姓名</td>
+        <td id="name"><input name='name' type="text"></td>
+    </tr>
+    <tr>
+        <td>电话</td>
+        <td id="phone"><input name='phone' type="text"></td>
+    </tr>
+    <tr>
+        <td>邮箱</td>
+        <td id="email"><input name='email' type="text"></td>
+    </tr>
+    <tr>
+        <td>地址</td>
+        <td id="address"><input name='address' type="text"></td>
+    </tr>
+    <tr>
+        <td>生日</td>
+        <td id="birthday"><input name='birthday' type="date"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input class="button" type="reset" value="清空">
+            <input class="button" type="submit" value="提交">
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
