@@ -7,6 +7,14 @@ const bodyParser = require('body-parser');//引入
 const userServise = require('./service/userService')
 
 const app = express();//创建app对象
+const router_stus = require('./routers/router_stus');
+const router_apis = require('./routers/router_apis');
+//设置路由中间件
+app.use('/stus',router_stus)
+app.use('/api',router_apis)
+
+
+
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
