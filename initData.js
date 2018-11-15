@@ -16,18 +16,19 @@ const Mock = require('mockjs');
 }*/
 
 let data = Mock.mock({
-    'users|222':[{
+    'users|40':[{
         'id|+1':10000,
         'name':'@cname',
         'email':'@email',
         'phone':'@natural(13955107789,18709863960)',
         'address':'@country(true)',
-        'birthday':'yyyy-MM-dd',
+        'birthday':'@yyyy-MM-dd',
         'zip':'@zip',
     }]
 })
 //es6中的展开运算符
-jsondb.users.push(...data.users)
+// jsondb.users.push(...data.users)
+jsondb.users = data.users;
 //把数据写入db.json
 fs.writeFileSync(path.join(__dirname,'db.json'),JSON.stringify(jsondb),{
     encoding:'utf8'

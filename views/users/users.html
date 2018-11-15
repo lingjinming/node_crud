@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>users</title>
+    <link href="https://cdn.bootcss.com/bulma/0.7.2/css/bulma.css" rel="stylesheet">
+    <link href="libs/simplePagination/simplePagination.css" rel="stylesheet">
     <style>
         p{
             font-size: 18px;
@@ -11,13 +13,70 @@
 </head>
 <body>
 <h1>{{title}}</h1>
-
-<h1>
+<a href="/users/add" class="button is-large is-pramary">添加</a>
+<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+    <tr>
+        <th>编号</th>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>电话</th>
+        <th>邮箱</th>
+        <th>地址</th>
+        <th>生日</th>
+        <th>操作</th>
+    </tr>
     {{each users as user index}}
-
-    <p>{{index}}-{{user.id}}-{{user.name}}-{{user.phone}}-{{user.email}}-{{user.address}}-{{user.birthday}}</p>
-
+    <tr>
+        <td>{{index}}</td>
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.birthday}}</td>
+        <td>
+            <a href="/users/del?id={{user.id}}" data-id="{{user.id}}" class="button btn-del">删除</a>
+            <a href="/users/edit?id={{user.id}}" data-id="{{user.id}}" class="button">修改</a>
+        </td>
+    </tr>
     {{/each}}
-</h1>
+</table>
+<div class="pager"></div>
+<!--<h1>-->
+    <!--{{each users as user index}}-->
+
+    <!--<p>{{index}}-{{user.id}}-{{user.name}}-{{user.phone}}-{{user.email}}-{{user.address}}-{{user.birthday}}</p>-->
+
+    <!--{{/each}}-->
+<!--</h1>-->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script>
+<script src="libs/simplePagination/jquery.simplePagination.js"></script>
+
+<script>
+    $(function () {
+        $('.btn-del').on('click',function (e) {
+            if (confirm('确认删除'+$(this).data('id')+'吗？')) {
+                //是的
+            }else {
+                //否
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        })
+
+        $('.pager').pagination({
+            items: '{{count}}',
+            itemsOnPage: 10,
+            cssStyle: 'light-theme',
+            current:'{{currentPage}}',
+            prevText:'上一页',
+            nextText:'下一页',
+            preveText:'上一页',
+            onPageClick:function (pageNumber,e) {
+                window.location.href = '/users?page='+pageNumber+"&size=10"
+            },
+        });
+    })
+</script>
 </body>
 </html>

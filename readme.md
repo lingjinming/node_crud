@@ -3,6 +3,7 @@
     npm i -g nodemon
     nodemon app.js
 ```
+
 #art-template 模版使用
 
     引入art-template的包
@@ -12,3 +13,7 @@
     项目中设置express的模版引擎为art-template
      
     先执行node initData.js初始化默认数据
+
+```
+# 利用mocha进行单元测试
+    npm install --save mocha
